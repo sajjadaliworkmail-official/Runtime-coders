@@ -1,0 +1,114 @@
+.result-display {
+    background-color: #1a1f2e;
+    border: 2px solid #2d3748;
+    border-radius: 12px;
+    padding: 2rem;
+    margin-top: 2rem;
+}
+
+.risk-badge {
+    text-align: center;
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+}
+
+.risk-safe {
+    background-color: rgba(72, 187, 120, 0.15);
+    border: 2px solid #48bb78;
+}
+
+.risk-suspicious {
+    background-color: rgba(236, 201, 75, 0.15);
+    border: 2px solid #ecc94b;
+}
+
+.risk-risky {
+    background-color: rgba(252, 129, 129, 0.15);
+    border: 2px solid #fc8181;
+}
+
+.risk-level {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.risk-safe .risk-level {
+    color: #48bb78;
+}
+
+.risk-suspicious .risk-level {
+    color: #ecc94b;
+}
+
+.risk-risky .risk-level {
+    color: #fc8181;
+}
+
+.risk-score {
+    font-size: 1rem;
+    color: #a0aec0;
+    font-weight: 500;
+}
+
+.reasons-section {
+    margin-bottom: 2rem;
+}
+
+.reasons-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #00d4ff;
+    margin-bottom: 1rem;
+}
+
+.reasons-list {
+    list-style: none;
+    padding: 0;
+}
+
+.reason-item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 0.875rem;
+    line-height: 1.6;
+}
+
+.reason-bullet {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    margin-top: 0.5rem;
+    margin-right: 0.75rem;
+    flex-shrink: 0;
+}
+
+.reason-text {
+    color: #e2e8f0;
+    font-size: 1rem;
+}
+
+.reset-button {
+    width: 100%;
+    padding: 0.875rem 1.5rem;
+    background-color: transparent;
+    color: #00d4ff;
+    border: 2px solid #00d4ff;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.reset-button:hover {
+    background-color: #00d4ff;
+    color: #0a0e1a;
+}
+
+.reset-button:active {
+    transform: scale(0.98);
+}

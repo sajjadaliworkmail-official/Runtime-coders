@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PhishEye UI Preview</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+            background-color: #0a0e1a;
+            color: #ffffff;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem 1rem;
+        }
+
+        .container {
+            max-width: 700px;
+            width: 100%;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #00d4ff;
+            margin-bottom: 0.75rem;
+            letter-spacing: -0.5px;
+        }
+
+        .description {
+            font-size: 1rem;
+            color: #a0aec0;
+            line-height: 1.5;
+        }
+
+        .input-section {
+            margin-bottom: 2rem;
+        }
+
+        .input-textarea {
+            width: 100%;
+            padding: 1rem;
+            background-color: #1a1f2e;
+            border: 2px solid #2d3748;
+            border-radius: 8px;
+            color: #ffffff;
+            font-size: 1rem;
+            font-family: inherit;
+            resize: vertical;
+            margin-bottom: 1rem;
+        }
+
+        .submit-button {
+            width: 100%;
+            padding: 1rem 2rem;
+            background-color: #00d4ff;
+            color: #0a0e1a;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.125rem;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .result-display {
+            background-color: #1a1f2e;
+            border: 2px solid #2d3748;
+            border-radius: 12px;
+            padding: 2rem;
+            margin-top: 2rem;
+        }
+
+        .risk-badge {
+            text-align: center;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            background-color: rgba(236, 201, 75, 0.15);
+            border: 2px solid #ecc94b;
+        }
+
+        .risk-level {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #ecc94b;
+        }
+
+        .risk-score {
+            font-size: 1rem;
+            color: #a0aec0;
+            font-weight: 500;
+        }
+
+        .reasons-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #00d4ff;
+            margin-bottom: 1rem;
+        }
+
+        .reasons-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .reason-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 0.875rem;
+            line-height: 1.6;
+        }
+
+        .reason-bullet {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: #ecc94b;
+            margin-top: 0.5rem;
+            margin-right: 0.75rem;
+            flex-shrink: 0;
+        }
+
+        .reason-text {
+            color: #e2e8f0;
+            font-size: 1rem;
+        }
+
+        .footer {
+            margin-top: 3rem;
+            text-align: center;
+        }
+
+        .disclaimer {
+            font-size: 0.875rem;
+            color: #718096;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header class="header">
+            <h1 class="title">PhishEye – Phishing Risk Checker</h1>
+            <p class="description">
+                Paste a suspicious link or message to evaluate phishing risk
+            </p>
+        </header>
+
+        <div class="input-section">
+            <textarea class="input-textarea" rows="6"
+                placeholder="Paste a URL or message here…">https://bit.ly/urgent-account-verify-now</textarea>
+            <button class="submit-button">Check Safety</button>
+        </div>
+
+        <div class="result-display">
+            <div class="risk-badge">
+                <div class="risk-level">Suspicious</div>
+                <div class="risk-score">Risk Score: 55/100</div>
+            </div>
+
+            <div class="reasons-section">
+                <h3 class="reasons-title">Analysis Details</h3>
+                <ul class="reasons-list">
+                    <li class="reason-item">
+                        <span class="reason-bullet"></span>
+                        <span class="reason-text">Urgent language detected (e.g., 'act now', 'limited time')</span>
+                    </li>
+                    <li class="reason-item">
+                        <span class="reason-bullet"></span>
+                        <span class="reason-text">URL shortener usage detected</span>
+                    </li>
+                    <li class="reason-item">
+                        <span class="reason-bullet"></span>
+                        <span class="reason-text">Requests personal information</span>
+                    </li>
+                    <li class="reason-item">
+                        <span class="reason-bullet"></span>
+                        <span class="reason-text">Domain registered recently (less than 6 months)</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <footer class="footer">
+            <p class="disclaimer">
+                This is a rule-based risk indicator tool. Results are not guaranteed and should not replace professional
+                security assessment.
+            </p>
+        </footer>
+    </div>
+</body>
+
+</html>
