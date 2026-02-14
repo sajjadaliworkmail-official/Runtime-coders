@@ -21,7 +21,7 @@ function Impact() {
     ];
 
     return (
-        <section className="bg-gray-50 py-20">
+        <section className="bg-gray-50 dark:bg-gray-950 py-20 transition-colors duration-300">
             <div className="section-container">
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
@@ -30,10 +30,10 @@ function Impact() {
                     transition={{ duration: 0.6 }}
                     className="text-center mb-16"
                 >
-                    <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+                    <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4 transition-colors duration-300">
                         Who Benefits from PhishEye?
                     </h2>
-                    <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+                    <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto transition-colors duration-300">
                         Making cybersecurity accessible to everyone, from students to professionals
                     </p>
                 </motion.div>
@@ -47,10 +47,10 @@ function Impact() {
                             viewport={{ once: true }}
                             transition={{ duration: 0.5, delay: index * 0.1 }}
                             whileHover={{ y: -5 }}
-                            className="bg-white rounded-xl p-8 border border-gray-100 shadow-md hover:shadow-xl transition-all duration-300"
+                            className="bg-white dark:bg-gray-900 rounded-xl p-8 border border-gray-100 dark:border-gray-700 shadow-md dark:shadow-black/50 hover:shadow-xl transition-all duration-300"
                         >
                             <div className="flex items-start gap-4">
-                                <div className="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center flex-shrink-0 text-primary-600">
+                                <div className="w-12 h-12 bg-primary-100 dark:bg-primary-900/40 rounded-lg flex items-center justify-center flex-shrink-0 text-primary-600 dark:text-primary-400 transition-colors duration-300">
                                     <svg
                                         className="w-6 h-6"
                                         fill="none"
@@ -66,8 +66,8 @@ function Impact() {
                                     </svg>
                                 </div>
                                 <div>
-                                    <h3 className="text-2xl font-bold text-gray-900 mb-3">{useCase.title}</h3>
-                                    <p className="text-gray-600 leading-relaxed">{useCase.description}</p>
+                                    <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-3 transition-colors duration-300">{useCase.title}</h3>
+                                    <p className="text-gray-600 dark:text-gray-400 leading-relaxed transition-colors duration-300">{useCase.description}</p>
                                 </div>
                             </div>
                         </motion.div>

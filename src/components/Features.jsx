@@ -41,7 +41,7 @@ function Features() {
     ];
 
     return (
-        <section id="features" className="bg-white py-20">
+        <section id="features" className="bg-white dark:bg-gray-900 py-20 transition-colors duration-300">
             <div className="section-container">
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
@@ -50,10 +50,10 @@ function Features() {
                     transition={{ duration: 0.6 }}
                     className="text-center mb-16"
                 >
-                    <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+                    <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4 transition-colors duration-300">
                         Key Features
                     </h2>
-                    <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+                    <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto transition-colors duration-300">
                         Powerful protection made simple and accessible for everyone
                     </p>
                 </motion.div>
@@ -67,13 +67,13 @@ function Features() {
                             viewport={{ once: true }}
                             transition={{ duration: 0.6, delay: index * 0.1 }}
                             whileHover={{ y: -10 }}
-                            className="bg-white rounded-xl p-6 text-center group border border-gray-100 hover:shadow-xl transition-all duration-300 shadow-sm"
+                            className="bg-white dark:bg-gray-800 rounded-xl p-6 text-center group border border-gray-100 dark:border-gray-700 hover:shadow-xl dark:shadow-black/60 transition-all duration-300 shadow-sm"
                         >
-                            <div className="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-6 text-primary-600 group-hover:bg-primary-600 group-hover:text-white transition-colors duration-300">
+                            <div className="w-16 h-16 bg-primary-100 dark:bg-primary-900/40 rounded-full flex items-center justify-center mx-auto mb-6 text-primary-600 dark:text-primary-400 group-hover:bg-primary-600 group-hover:text-white transition-colors duration-300">
                                 {feature.icon}
                             </div>
-                            <h3 className="text-xl font-bold text-gray-900 mb-3">{feature.title}</h3>
-                            <p className="text-gray-600 leading-relaxed">{feature.description}</p>
+                            <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3 transition-colors duration-300">{feature.title}</h3>
+                            <p className="text-gray-600 dark:text-gray-400 leading-relaxed transition-colors duration-300">{feature.description}</p>
                         </motion.div>
                     ))}
                 </div>

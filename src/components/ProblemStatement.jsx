@@ -17,7 +17,7 @@ function ProblemStatement() {
     ];
 
     return (
-        <section className="bg-gray-50 py-20">
+        <section className="bg-gray-50 dark:bg-gray-950 py-20 transition-colors duration-300">
             <div className="section-container">
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
@@ -26,10 +26,10 @@ function ProblemStatement() {
                     transition={{ duration: 0.6 }}
                     className="text-center mb-16"
                 >
-                    <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+                    <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4 transition-colors duration-300">
                         The Problem We're Solving
                     </h2>
-                    <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+                    <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto transition-colors duration-300">
                         Phishing attacks are becoming more sophisticated, yet users lack accessible tools to protect themselves.
                     </p>
                 </motion.div>
@@ -42,11 +42,11 @@ function ProblemStatement() {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.6, delay: index * 0.1 }}
-                            className="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 hover:-translate-y-1"
+                            className="bg-white dark:bg-gray-900 rounded-xl p-8 shadow-lg dark:shadow-black/50 hover:shadow-xl transition-all duration-300 border border-gray-100 dark:border-gray-700 hover:-translate-y-1"
                         >
-                            <div className="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                            <div className="w-16 h-16 bg-primary-100 dark:bg-primary-900/40 rounded-full flex items-center justify-center mx-auto mb-6 transition-colors duration-300">
                                 <svg
-                                    className="w-8 h-8 text-primary-600"
+                                    className="w-8 h-8 text-primary-600 dark:text-primary-400"
                                     fill="none"
                                     stroke="currentColor"
                                     viewBox="0 0 24 24"
@@ -59,8 +59,8 @@ function ProblemStatement() {
                                     />
                                 </svg>
                             </div>
-                            <h3 className="text-xl font-bold text-gray-900 mb-3">{problem.title}</h3>
-                            <p className="text-gray-600 leading-relaxed">{problem.description}</p>
+                            <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3 transition-colors duration-300">{problem.title}</h3>
+                            <p className="text-gray-600 dark:text-gray-400 leading-relaxed transition-colors duration-300">{problem.description}</p>
                         </motion.div>
                     ))}
                 </div>
