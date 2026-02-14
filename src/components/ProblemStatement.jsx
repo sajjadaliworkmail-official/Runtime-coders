@@ -17,7 +17,7 @@ function ProblemStatement() {
     ];
 
     return (
-        <section className="bg-white">
+        <section className="bg-gray-50 py-20">
             <div className="section-container">
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
@@ -42,7 +42,7 @@ function ProblemStatement() {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.6, delay: index * 0.1 }}
-                            className="card text-center"
+                            className="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 hover:-translate-y-1"
                         >
                             <div className="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-6">
                                 <svg

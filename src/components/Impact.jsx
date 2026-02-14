@@ -21,7 +21,7 @@ function Impact() {
     ];
 
     return (
-        <section className="bg-white">
+        <section className="bg-gray-50 py-20">
             <div className="section-container">
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
@@ -46,12 +46,13 @@ function Impact() {
                             whileInView={{ opacity: 1, scale: 1 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.5, delay: index * 0.1 }}
-                            className="bg-gradient-to-br from-primary-50 to-white rounded-xl p-8 border-2 border-primary-100 hover:border-primary-300 transition-all duration-300 hover:shadow-lg"
+                            whileHover={{ y: -5 }}
+                            className="bg-white rounded-xl p-8 border border-gray-100 shadow-md hover:shadow-xl transition-all duration-300"
                         >
                             <div className="flex items-start gap-4">
-                                <div className="w-12 h-12 bg-primary-600 rounded-lg flex items-center justify-center flex-shrink-0">
+                                <div className="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center flex-shrink-0 text-primary-600">
                                     <svg
-                                        className="w-6 h-6 text-white"
+                                        className="w-6 h-6"
                                         fill="none"
                                         stroke="currentColor"
                                         viewBox="0 0 24 24"

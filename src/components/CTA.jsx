@@ -33,7 +33,7 @@ function CTA() {
     };
 
     return (
-        <section id="cta" className="bg-gradient-to-br from-gray-50 to-white relative">
+        <section id="cta" className="bg-primary-50 py-20 relative">
             <div className="section-container">
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}

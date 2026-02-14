@@ -9,46 +9,77 @@ function Hero() {
     };
 
     return (
-        <section id="home" className="pt-24 pb-16 bg-gradient-to-br from-primary-50 to-white">
-            <div className="section-container">
+        <section id="home" className="relative min-h-screen flex items-center pt-16 pb-16 overflow-hidden">
+            {/* Background with gradient overlay */}
+            <div className="absolute inset-0 bg-gradient-to-br from-primary-900 via-primary-800 to-primary-950 z-0">
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                {/* Animated background pattern */}
+                <div className="absolute inset-0 opacity-10">
+                    <div className="absolute inset-0" style={{
+                        backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)',
+                        backgroundSize: '40px 40px'
+                    }}></div>
+                </div>
+            </div>
+
+            <div className="section-container relative z-10">
                 <div className="grid md:grid-cols-2 gap-12 items-center">
                     {/* Left Content */}
                     <motion.div
-                        initial={{ opacity: 0, x: -50 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.6 }}
+                        initial={{ opacity: 0, y: 30 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8, ease: "easeOut" }}
                     >
-                        <h1 className="text-5xl md:text-6xl font-bold text-gray-900 leading-tight mb-6">
+                        <motion.h1
+                            className="text-5xl md:text-7xl font-extrabold text-white leading-tight mb-6 drop-shadow-lg"
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.8, delay: 0.2 }}
+                        >
                             Detect Phishing Before It Steals Your Data
-                        </h1>
-                        <p className="text-xl text-gray-600 mb-8 leading-relaxed">
+                        </motion.h1>
+                        <motion.p
+                            className="text-xl md:text-2xl text-gray-200 mb-8 leading-relaxed"
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.8, delay: 0.4 }}
+                        >
                             PhishEye analyzes suspicious links and messages in real-time, providing clear risk assessments
                             and educational explanations to help you stay safe online.
-                        </p>
-                        <div className="flex flex-col sm:flex-row gap-4">
-                            <button
+                        </motion.p>
+                        <motion.div
+                            className="flex flex-col sm:flex-row gap-4"
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.8, delay: 0.6 }}
+                        >
+                            <motion.button
                                 onClick={() => scrollToSection('cta')}
-                                className="btn-primary text-lg"
+                                className="btn-primary text-lg px-8 py-4 bg-gradient-to-r from-primary-500 to-primary-600 hover:from-primary-600 hover:to-primary-700 shadow-xl hover:shadow-2xl"
+                                whileHover={{ scale: 1.05 }}
+                                whileTap={{ scale: 0.95 }}
                             >
                                 Try Demo
-                            </button>
-                            <button
+                            </motion.button>
+                            <motion.button
                                 onClick={() => scrollToSection('dashboard')}
-                                className="btn-secondary text-lg"
+                                className="btn-secondary text-lg px-8 py-4 bg-white/10 backdrop-blur-sm border-2 border-white text-white hover:bg-white hover:text-primary-600"
+                                whileHover={{ scale: 1.05 }}
+                                whileTap={{ scale: 0.95 }}
                             >
                                 View Dashboard
-                            </button>
-                        </div>
+                            </motion.button>
+                        </motion.div>
                     </motion.div>
 
                     {/* Right Content - Dashboard Preview */}
                     <motion.div
-                        initial={{ opacity: 0, x: 50 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.6, delay: 0.2 }}
+                        initial={{ opacity: 0, y: 30 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8, delay: 0.8 }}
                         className="relative"
                     >
-                        <div className="bg-white rounded-2xl shadow-2xl p-6 border border-gray-100">
+                        <div className="bg-white/95 backdrop-blur-lg rounded-2xl shadow-2xl p-6 border border-white/20 hover:shadow-primary-500/20 hover:shadow-3xl transition-shadow duration-300">
                             <div className="flex items-center justify-between mb-4">
                                 <h3 className="text-lg font-semibold text-gray-900">Recent Scan</h3>
                                 <span className="badge-risky">High Risk</span>

@@ -41,7 +41,7 @@ function DashboardPreview() {
     };
 
     return (
-        <section id="dashboard" className="bg-gray-50">
+        <section id="dashboard" className="bg-white">
             <div className="section-container">
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
@@ -63,7 +63,7 @@ function DashboardPreview() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.6, delay: 0.2 }}
-                    className="bg-white rounded-2xl shadow-xl overflow-hidden"
+                    className="bg-white rounded-2xl shadow-2xl overflow-hidden border border-gray-200"
                 >
                     {/* Table Header */}
                     <div className="bg-primary-600 text-white px-6 py-4">
@@ -77,36 +77,76 @@ function DashboardPreview() {
 
                     {/* Table Body */}
                     <div className="divide-y divide-gray-200">
-                        {scanResults.map((result, index) => (
-                            <motion.div
-                                key={index}
-                                initial={{ opacity: 0 }}
-                                whileInView={{ opacity: 1 }}
-                                viewport={{ once: true }}
-                                transition={{ duration: 0.3, delay: index * 0.05 }}
-                                whileHover={{ backgroundColor: '#f9fafb' }}
-                                className="px-6 py-4 cursor-pointer transition-colors"
-                            >
-                                <div className="grid grid-cols-12 gap-4 items-center">
-                                    <div className="col-span-4">
-                                        <p className="text-sm font-mono text-gray-900 truncate">
-                                            {result.url}
-                                        </p>
+                        {scanResults.map((result, index) => {
+                            // Determine background color based on risk level
+                            const getRowBgClass = (level) => {
+                                if (level === "Safe") return "bg-green-50 hover:bg-green-100";
+                                if (level === "Suspicious") return "bg-yellow-50 hover:bg-yellow-100";
+                                return "bg-red-50 hover:bg-red-100";
+                            };
+
+                            // Get icon for risk level
+                            const getRiskIcon = (level) => {
+                                if (level === "Safe") {
+                                    return (
+                                        <svg className="w-5 h-5 text-green-600" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                                        </svg>
+                                    );
+                                } else if (level === "Suspicious") {
+                                    return (
+                                        <svg className="w-5 h-5 text-yellow-600" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fillRule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
+                                        </svg>
+                                    );
+                                } else {
+                                    return (
+                                        <svg className="w-5 h-5 text-red-600" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clipRule="evenodd" />
+                                        </svg>
+                                    );
+                                }
+                            };
+
+                            return (
+                                <motion.div
+                                    key={index}
+                                    initial={{ opacity: 0 }}
+                                    whileInView={{ opacity: 1 }}
+                                    viewport={{ once: true }}
+                                    transition={{ duration: 0.3, delay: index * 0.05 }}
+                                    className={`px-6 py-4 cursor-pointer transition-all duration-200 ${getRowBgClass(result.riskLevel)} border-l-4 ${result.riskLevel === "Safe" ? "border-green-500" :
+                                        result.riskLevel === "Suspicious" ? "border-yellow-500" :
+                                            "border-red-500"
+                                        }`}
+                                    whileHover={{ scale: 1.01, x: 4 }}
+                                >
+                                    <div className="grid grid-cols-12 gap-4 items-center">
+                                        <div className="col-span-4">
+                                            <p className="text-sm font-mono text-gray-900 truncate">
+                                                {result.url}
+                                            </p>
+                                        </div>
+                                        <div className="col-span-2">
+                                            <div className="flex items-center gap-2">
+                                                {getRiskIcon(result.riskLevel)}
+                                                <span className={getBadgeClass(result.riskLevel)}>
+                                                    {result.riskLevel}
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div className="col-span-4">
+                                            <p className="text-sm text-gray-700 font-medium" title={result.reason}>
+                                                {result.reason}
+                                            </p>
+                                        </div>
+                                        <div className="col-span-2">
+                                            <p className="text-sm text-gray-500">{result.timestamp}</p>
+                                        </div>
                                     </div>
-                                    <div className="col-span-2">
-                                        <span className={getBadgeClass(result.riskLevel)}>
-                                            {result.riskLevel}
-                                        </span>
-                                    </div>
-                                    <div className="col-span-4">
-                                        <p className="text-sm text-gray-600">{result.reason}</p>
-                                    </div>
-                                    <div className="col-span-2">
-                                        <p className="text-sm text-gray-500">{result.timestamp}</p>
-                                    </div>
-                                </div>
-                            </motion.div>
-                        ))}
+                                </motion.div>
+                            );
+                        })}
                     </div>
                 </motion.div>
             </div>

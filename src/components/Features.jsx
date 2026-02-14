@@ -41,7 +41,7 @@ function Features() {
     ];
 
     return (
-        <section id="features" className="bg-gray-50">
+        <section id="features" className="bg-white py-20">
             <div className="section-container">
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
@@ -66,9 +66,10 @@ function Features() {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.6, delay: index * 0.1 }}
-                            className="card text-center group"
+                            whileHover={{ y: -10 }}
+                            className="bg-white rounded-xl p-6 text-center group border border-gray-100 hover:shadow-xl transition-all duration-300 shadow-sm"
                         >
-                            <div className="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-6 text-primary-600 group-hover:bg-primary-600 group-hover:text-white transition-colors">
+                            <div className="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-6 text-primary-600 group-hover:bg-primary-600 group-hover:text-white transition-colors duration-300">
                                 {feature.icon}
                             </div>
                             <h3 className="text-xl font-bold text-gray-900 mb-3">{feature.title}</h3>
