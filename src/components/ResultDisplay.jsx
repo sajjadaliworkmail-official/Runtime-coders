@@ -1,50 +1,48 @@
 import './ResultDisplay.css';
 
-function ResultDisplay({ result, onReset }) {
+function ResultDisplay({ result }) {
     const { riskLevel, score, reasons } = result;
 
-    const getRiskClass = (level) => {
-        const levelLower = level.toLowerCase();
-        if (levelLower === 'safe') return 'risk-safe';
-        if (levelLower === 'suspicious') return 'risk-suspicious';
-        if (levelLower === 'risky') return 'risk-risky';
-        return 'risk-suspicious';
+    // Determine risk class for styling
+    const getRiskClass = () => {
+        if (riskLevel === 'Safe') return 'risk-safe';
+        if (riskLevel === 'Suspicious') return 'risk-suspicious';
+        return 'risk-risky';
     };
 
-    const getRiskColor = (level) => {
-        const levelLower = level.toLowerCase();
-        if (levelLower === 'safe') return '#48bb78';
-        if (levelLower === 'suspicious') return '#ecc94b';
-        if (levelLower === 'risky') return '#fc8181';
-        return '#ecc94b';
+    // Get risk color for visual distinction
+    const getRiskColor = () => {
+        if (riskLevel === 'Safe') return '#00ff88';
+        if (riskLevel === 'Suspicious') return '#ffd700';
+        return '#ff4444';
     };
 
     return (
-        <div className="result-display">
-            <div className={`risk-badge ${getRiskClass(riskLevel)}`}>
+        <div className="result-container">
+            <div className={`risk-badge ${getRiskClass()}`}>
                 <div className="risk-level">{riskLevel}</div>
                 {score !== undefined && (
                     <div className="risk-score">Risk Score: {score}/100</div>
                 )}
             </div>
 
-            {reasons && reasons.length > 0 && (
-                <div className="reasons-section">
-                    <h3 className="reasons-title">Analysis Details</h3>
-                    <ul className="reasons-list">
-                        {reasons.map((reason, index) => (
+            <div className="reasons-section">
+                <h3 className="reasons-title">Analysis Details</h3>
+                <ul className="reasons-list">
+                    {reasons && reasons.length > 0 ? (
+                        reasons.map((reason, index) => (
                             <li key={index} className="reason-item">
-                                <span className="reason-bullet" style={{ backgroundColor: getRiskColor(riskLevel) }}></span>
+                                <span className="bullet" style={{ backgroundColor: getRiskColor() }}></span>
                                 <span className="reason-text">{reason}</span>
                             </li>
-                        ))}
-                    </ul>
-                </div>
-            )}
-
-            <button className="reset-button" onClick={onReset}>
-                Check Another
-            </button>
+                        ))
+                    ) : (
+                        <li className="reason-item">
+                            <span className="reason-text">No specific details available</span>
+                        </li>
+                    )}
+                </ul>
+            </div>
         </div>
     );
 }
